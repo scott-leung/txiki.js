@@ -22,14 +22,17 @@
  * THE SOFTWARE.
  */
 
+#if !defined(NO_CURL)
 #include "curl-utils.h"
+#endif // !defined(NO_CURL)
+
 #include "private.h"
 #include "tjs.h"
 #include "utils.h"
 
 #include <string.h>
 
-
+#if !defined(NO_CURL)
 JSModuleDef *tjs__load_http(JSContext *ctx, const char *url) {
     JSModuleDef *m;
     DynBuf dbuf;
@@ -70,6 +73,7 @@ end:
 
     return m;
 }
+#endif // !defined(NO_CURL)
 
 JSModuleDef *tjs_module_loader(JSContext *ctx, const char *module_name, void *opaque) {
     static const char http[] = "http://";
@@ -87,9 +91,11 @@ JSModuleDef *tjs_module_loader(JSContext *ctx, const char *module_name, void *op
         return tjs__load_builtin(ctx, module_name);
     }
 
+#if !defined(NO_CURL)
     if (strncmp(http, module_name, strlen(http)) == 0 || strncmp(https, module_name, strlen(https)) == 0) {
         return tjs__load_http(ctx, module_name);
     }
+#endif  // !defined(NO_CURL)
 
     tjs_dbuf_init(ctx, &dbuf);
 

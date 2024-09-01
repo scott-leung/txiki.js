@@ -1,0 +1,4 @@
+E:/code/txiki.js/build/deps/wasm3/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/foo.dir
+E:/code/txiki.js/build/deps/wasm3/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/boo.dir
+E:/code/txiki.js/build/deps/wasm3/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/ALL_BUILD.dir
+E:/code/txiki.js/build/deps/wasm3/CMakeFiles/_CMakeLTOTest-C/bin/CMakeFiles/ZERO_CHECK.dir

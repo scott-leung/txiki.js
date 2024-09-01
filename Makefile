@@ -40,8 +40,7 @@ $(BUILD_DIR):
 $(TJS): $(BUILD_DIR)
 	cmake --build $(BUILD_DIR) -j $(JOBS)
 
-$(QJSC): $(BUILD_DIR)
-	cmake --build $(BUILD_DIR) --target tjsc -j $(JOBS)
+QJSC=./$(BUILD_DIR)/$(BUILDTYPE)/tjsc.exe
 
 src/bundles/js/core/polyfills.js: src/js/polyfills/*.js
 	$(ESBUILD) src/js/polyfills/index.js \

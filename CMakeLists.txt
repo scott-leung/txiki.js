@@ -2,6 +2,11 @@ cmake_minimum_required(VERSION 3.14)
 
 project(tjs LANGUAGES C)
 
+add_compile_definitions(NO_CURL)
+add_compile_definitions(NO_FFI)
+add_compile_definitions(_WINSOCKAPI_)
+add_compile_definitions(PATH_MAX=260)
+
 include(ExternalProject)
 include(GNUInstallDirs)
 
@@ -45,7 +50,7 @@ macro(cpr_option OPTION_NAME OPTION_TEXT OPTION_DEFAULT)
 endmacro()
 
 cpr_option(BUILD_WITH_MIMALLOC "If ON (default), build with mimalloc" ON)
-cpr_option(USE_EXTERNAL_FFI "Specify to use external ffi dependency" OFF)
+#cpr_option(USE_EXTERNAL_FFI "Specify to use external ffi dependency" OFF)
 
 add_subdirectory(deps/quickjs EXCLUDE_FROM_ALL)
 
@@ -66,12 +71,12 @@ if(BUILD_WITH_MIMALLOC)
     add_subdirectory(deps/mimalloc EXCLUDE_FROM_ALL)
 endif()
 
-find_package(CURL REQUIRED)
+# find_package(CURL REQUIRED)
 
 add_library(tjs STATIC
     src/builtins.c
-    src/curl-utils.c
-    src/curl-websocket.c
+    #src/curl-utils.c
+    #src/curl-websocket.c
     src/error.c
     src/eval.c
     src/mem.c
@@ -84,11 +89,11 @@ add_library(tjs STATIC
     src/vm.c
     src/wasm.c
     src/worker.c
-    src/ws.c
-    src/xhr.c
+    #src/ws.c
+    #src/xhr.c
     src/mod_dns.c
     src/mod_engine.c
-    src/mod_ffi.c
+    #src/mod_ffi.c
     src/mod_fs.c
     src/mod_fswatch.c
     src/mod_os.c
@@ -109,9 +114,9 @@ if(UNIX)
     target_sources(tjs PUBLIC src/mod_posix-socket.c)
 endif()
 
-add_library(ffi-test SHARED
-    tests/fixtures/ffi-test-lib.c
-)
+#add_library(ffi-test SHARED
+#    tests/fixtures/ffi-test-lib.c
+#)
 
 add_library(sqlite-test SHARED
     tests/fixtures/sqlite-test-ext.c
@@ -120,36 +125,36 @@ add_library(sqlite-test SHARED
 target_link_libraries(sqlite-test sqlite3)
 
 
-if(NOT USE_EXTERNAL_FFI AND NOT MINGW AND NOT APPLE)
-    set(LIBFFI_SRC "${CMAKE_CURRENT_SOURCE_DIR}/deps/libffi")
-    set(TMP_INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}/ffi_root")
-    if(MINGW)
-        set(LIBFFI_STATIC_PATH ${TMP_INSTALL_DIR}/usr/local/lib/libffi.dll.a)
-    else()
-        set(LIBFFI_STATIC_PATH ${TMP_INSTALL_DIR}/usr/local/lib/libffi.a)
-    endif()
-    ExternalProject_Add(
-        libffi
-        BUILD_IN_SOURCE 1
-        SOURCE_DIR "${LIBFFI_SRC}"
-        CONFIGURE_COMMAND ./autogen.sh COMMAND ./configure --enable-static=yes --disable-shared --disable-multi-os-directory
-        BUILD_COMMAND make
-        INSTALL_DIR ${TMP_INSTALL_DIR}
-        INSTALL_COMMAND make DESTDIR=${TMP_INSTALL_DIR} install
-        EXCLUDE_FROM_ALL TRUE
-        BUILD_BYPRODUCTS ${LIBFFI_STATIC_PATH}
-    )
-    add_dependencies(tjs libffi)
-    add_library(libffi_a STATIC IMPORTED)
-    set_target_properties(libffi_a PROPERTIES IMPORTED_LOCATION ${LIBFFI_STATIC_PATH})
-    target_include_directories(tjs PRIVATE ${TMP_INSTALL_DIR}/usr/local/include)
-    target_link_libraries(tjs libffi_a)
-else()
-    find_library(FFI_LIB NAMES libffi ffi REQUIRED)
-    find_path(FFI_INCLUDE_DIR NAMES ffi.h PATH_SUFFIXES ffi REQUIRED)
-    target_include_directories(tjs PRIVATE ${FFI_INCLUDE_DIR})
-    target_link_libraries(tjs ${FFI_LIB})
-endif()
+# if(NOT USE_EXTERNAL_FFI AND NOT MINGW AND NOT APPLE)
+#     set(LIBFFI_SRC "${CMAKE_CURRENT_SOURCE_DIR}/deps/libffi")
+#     set(TMP_INSTALL_DIR "${CMAKE_CURRENT_BINARY_DIR}/ffi_root")
+#     if(MINGW)
+#         set(LIBFFI_STATIC_PATH ${TMP_INSTALL_DIR}/usr/local/lib/libffi.dll.a)
+#     else()
+#         set(LIBFFI_STATIC_PATH ${TMP_INSTALL_DIR}/usr/local/lib/libffi.a)
+#     endif()
+#     ExternalProject_Add(
+#         libffi
+#         BUILD_IN_SOURCE 1
+#         SOURCE_DIR "${LIBFFI_SRC}"
+#         CONFIGURE_COMMAND ./autogen.sh COMMAND ./configure --enable-static=yes --disable-shared --disable-multi-os-directory
+#         BUILD_COMMAND make
+#         INSTALL_DIR ${TMP_INSTALL_DIR}
+#         INSTALL_COMMAND make DESTDIR=${TMP_INSTALL_DIR} install
+#         EXCLUDE_FROM_ALL TRUE
+#         BUILD_BYPRODUCTS ${LIBFFI_STATIC_PATH}
+#     )
+#     add_dependencies(tjs libffi)
+#     add_library(libffi_a STATIC IMPORTED)
+#     set_target_properties(libffi_a PROPERTIES IMPORTED_LOCATION ${LIBFFI_STATIC_PATH})
+#     target_include_directories(tjs PRIVATE ${TMP_INSTALL_DIR}/usr/local/include)
+#     target_link_libraries(tjs libffi_a)
+# else()
+#     find_library(FFI_LIB NAMES libffi ffi REQUIRED)
+#     find_path(FFI_INCLUDE_DIR NAMES ffi.h PATH_SUFFIXES ffi REQUIRED)
+#     target_include_directories(tjs PRIVATE ${FFI_INCLUDE_DIR})
+#     target_link_libraries(tjs ${FFI_LIB})
+# endif()
 
 set_target_properties(tjs PROPERTIES
     C_STANDARD 11
@@ -160,7 +165,7 @@ string(TOLOWER ${CMAKE_SYSTEM_NAME} TJS_PLATFORM)
 target_compile_options(tjs PRIVATE ${tjs_cflags})
 target_compile_definitions(tjs PRIVATE TJS__PLATFORM="${TJS_PLATFORM}")
 target_include_directories(tjs PUBLIC src)
-target_link_libraries(tjs qjs uv_a m3 sqlite3 m pthread CURL::libcurl)
+target_link_libraries(tjs qjs uv_a m3 sqlite3 m pthread)
 
 if (BUILD_WITH_MIMALLOC)
     target_compile_definitions(tjs PRIVATE TJS__HAS_MIMALLOC)

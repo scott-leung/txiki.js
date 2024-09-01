@@ -35,6 +35,10 @@
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof((a)[0]))
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct AssertionInfo {
     const char *file_line;  // filename:line
     const char *message;
@@ -139,6 +143,12 @@ int tjs_getsignum(const char *sig_str);
         return TJS_THROW_ARG_ERR(ctx, argno, expected);                                                                \
     }
 
-#endif
-
 void tjs_dbuf_init(JSContext *ctx, DynBuf *s);
+
+typedef void (*TjsPrintStrHandler)(const char* err_str);
+void tjs_set_print_str_handler(TjsPrintStrHandler handler);
+#ifdef __cplusplus
+}
+#endif  // __cplusplus
+
+#endif  // TJS_UTILS_H

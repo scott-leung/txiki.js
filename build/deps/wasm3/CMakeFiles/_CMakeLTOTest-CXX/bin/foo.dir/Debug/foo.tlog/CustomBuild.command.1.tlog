@@ -1,0 +1,10 @@
+^E:\CODE\TXIKI.JS\BUILD\DEPS\WASM3\CMAKEFILES\_CMAKELTOTEST-CXX\SRC\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/code/txiki.js/build/deps/wasm3/CMakeFiles/_CMakeLTOTest-CXX/src -BE:/code/txiki.js/build/deps/wasm3/CMakeFiles/_CMakeLTOTest-CXX/bin --check-stamp-file E:/code/txiki.js/build/deps/wasm3/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -29,7 +29,10 @@
 #include "tjs.h"
 #include "wasm.h"
 
+#if !defined(NO_CURL)
 #include <curl/curl.h>
+#endif  // !defined(NO_CURL)
+
 #include <quickjs.h>
 #include <sqlite3.h>
 #include <stdbool.h>
@@ -50,10 +53,12 @@ struct TJSRuntime {
     uv_async_t stop;
     bool is_worker;
     bool freeing;
+#if !defined(NO_CURL)
     struct {
         CURLM *curlm_h;
         uv_timer_t timer;
     } curl_ctx;
+#endif  // !defined(NO_CURL)
     struct {
         IM3Environment env;
     } wasm_ctx;
@@ -70,7 +75,9 @@ struct TJSRuntime {
 void tjs__mod_dns_init(JSContext *ctx, JSValue ns);
 void tjs__mod_engine_init(JSContext *ctx, JSValue ns);
 void tjs__mod_error_init(JSContext *ctx, JSValue ns);
+#if !defined(NO_FFI)
 void tjs__mod_ffi_init(JSContext *ctx, JSValue ns);
+#endif  // !defined(NO_FFI)
 void tjs__mod_fs_init(JSContext *ctx, JSValue ns);
 void tjs__mod_fswatch_init(JSContext *ctx, JSValue ns);
 void tjs__mod_os_init(JSContext *ctx, JSValue ns);
@@ -83,8 +90,10 @@ void tjs__mod_timers_init(JSContext *ctx, JSValue ns);
 void tjs__mod_udp_init(JSContext *ctx, JSValue ns);
 void tjs__mod_wasm_init(JSContext *ctx, JSValue ns);
 void tjs__mod_worker_init(JSContext *ctx, JSValue ns);
+#if !defined(NO_CURL)
 void tjs__mod_ws_init(JSContext *ctx, JSValue ns);
 void tjs__mod_xhr_init(JSContext *ctx, JSValue ns);
+#endif  // !defined(NO_CURL)
 
 #ifndef _WIN32
 void tjs__mod_posix_socket_init(JSContext *ctx, JSValue ns);

@@ -1,0 +1,13 @@
+# Target labels
+ libffi
+# Source files and their labels
+E:/code/txiki.js/build/CMakeFiles/libffi
+E:/code/txiki.js/build/CMakeFiles/b6c2fc2aca9beb5596732d04e56b187d/libffi.rule
+E:/code/txiki.js/build/CMakeFiles/eded3801ca2e47500e87bc0d7a9e053c/libffi-complete.rule
+E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-build.rule
+E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-configure.rule
+E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-download.rule
+E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-install.rule
+E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-mkdir.rule
+E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-patch.rule
+E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-update.rule

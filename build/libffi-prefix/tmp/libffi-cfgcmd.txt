@@ -1,0 +1,1 @@
+cmd='./autogen.sh;COMMAND;./configure;--enable-static=yes;--disable-shared;--disable-multi-os-directory'

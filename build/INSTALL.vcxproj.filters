@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\b6c2fc2aca9beb5596732d04e56b187d\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C71A9533-5004-3221-8285-30452AFB6597}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

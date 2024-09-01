@@ -1,0 +1,130 @@
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\D524378BB38B8976D376A82A6DD54329\LIBFFI-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Release -P E:/code/txiki.js/build/libffi-prefix/tmp/libffi-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/libffi-prefix/src/libffi-stamp/Release/libffi-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\D524378BB38B8976D376A82A6DD54329\LIBFFI-DOWNLOAD.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/libffi-prefix/src/libffi-stamp/Release/libffi-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\D524378BB38B8976D376A82A6DD54329\LIBFFI-UPDATE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/libffi-prefix/src/libffi-stamp/Release/libffi-update
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\D524378BB38B8976D376A82A6DD54329\LIBFFI-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/libffi-prefix/src/libffi-stamp/Release/libffi-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\D524378BB38B8976D376A82A6DD54329\LIBFFI-CONFIGURE.RULE
+setlocal
+cd E:\code\txiki.js\deps\libffi
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+.\autogen.sh
+if %errorlevel% neq 0 goto :cmEnd
+.\configure --enable-static=yes --disable-shared --disable-multi-os-directory
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/libffi-prefix/src/libffi-stamp/Release/libffi-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\D524378BB38B8976D376A82A6DD54329\LIBFFI-BUILD.RULE
+setlocal
+cd E:\code\txiki.js\deps\libffi
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+make
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/libffi-prefix/src/libffi-stamp/Release/libffi-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\D524378BB38B8976D376A82A6DD54329\LIBFFI-INSTALL.RULE
+setlocal
+cd E:\code\txiki.js\deps\libffi
+if %errorlevel% neq 0 goto :cmEnd
+E:
+if %errorlevel% neq 0 goto :cmEnd
+make DESTDIR=E:/code/txiki.js/build/ffi_root install
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/libffi-prefix/src/libffi-stamp/Release/libffi-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\EDED3801CA2E47500E87BC0D7A9E053C\LIBFFI-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/code/txiki.js/build/CMakeFiles/Release
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/CMakeFiles/Release/libffi-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/code/txiki.js/build/libffi-prefix/src/libffi-stamp/Release/libffi-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\B6C2FC2ACA9BEB5596732D04E56B187D\LIBFFI.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^E:\CODE\TXIKI.JS\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/code/txiki.js -BE:/code/txiki.js/build --check-stamp-file E:/code/txiki.js/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

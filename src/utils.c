@@ -30,15 +30,29 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define PRINT_STR_BUF_SIZE 4096
+
+static TjsPrintStrHandler print_str_handler = NULL;
 
 void tjs_assert(const struct AssertionInfo info) {
-    fprintf(stderr,
+    if (print_str_handler) {
+        char err_msg[PRINT_STR_BUF_SIZE];
+        sprintf_s(err_msg, PRINT_STR_BUF_SIZE,
             "%s:%s%s Assertion `%s' failed.\n",
             info.file_line,
             info.function,
             *info.function ? ":" : "",
             info.message);
-    fflush(stderr);
+        print_str_handler(err_msg);
+	} else {
+        fprintf(stderr,
+                "%s:%s%s Assertion `%s' failed.\n",
+                info.file_line,
+                info.function,
+                *info.function ? ":" : "",
+                info.message);
+        fflush(stderr);
+	}
     abort();
 }
 
@@ -128,6 +142,14 @@ void tjs_addr2obj(JSContext *ctx, JSValue obj, const struct sockaddr *sa, bool s
 
 static void tjs_dump_obj(JSContext *ctx, FILE *f, JSValue val) {
     const char *str = JS_ToCString(ctx, val);
+    if (print_str_handler) {
+        if (str) {
+            print_str_handler(str);
+        } else {
+			print_str_handler("[exception]");
+		}
+        return;
+    }
     if (str) {
         fprintf(f, "%s\n", str);
         JS_FreeCString(ctx, str);
@@ -394,4 +416,8 @@ int tjs_getsignum(const char *sig_str) {
 
 void tjs_dbuf_init(JSContext *ctx, DynBuf *s) {
     dbuf_init2(s, JS_GetRuntime(ctx), (DynBufReallocFunc *) js_realloc_rt);
+}
+
+void tjs_set_print_str_handler(TjsPrintStrHandler handler) {
+    print_str_handler = handler;
 }

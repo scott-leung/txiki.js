@@ -1,0 +1,1 @@
+E:\code\txiki.js\build\deps\quickjs\Debug\qjs.lib

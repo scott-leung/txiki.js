@@ -26,7 +26,10 @@
 #include "utils.h"
 #include "wasm.h"
 
+#if !defined(NO_CURL)
 #include <curl/curl.h>
+#endif // !defined(NO_CURL)
+
 #include <string.h>
 #include <unistd.h>
 

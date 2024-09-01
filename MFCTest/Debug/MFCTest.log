@@ -1,0 +1,102 @@
+﻿  Note: including file: ./js_env.h
+  Note: including file:  C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\string
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xstring
+  Note: including file:    C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\iosfwd
+  Note: including file:     C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\yvals.h
+  Note: including file:      C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\crtdefs.h
+  Note: including file:      C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\use_ansi.h
+  Note: including file:     C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\cstring
+  Note: including file:    C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xmemory
+  Note: including file:     C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\new
+  Note: including file:      C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\exception
+  Note: including file:       C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\vcruntime_exception.h
+  Note: including file:        C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\eh.h
+  Note: including file:         C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\Llvm\lib\clang\15.0.1\include\vadefs.h
+  Note: including file:         C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\corecrt_terminate.h
+  Note: including file:     C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xatomic.h
+  Note: including file:     C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xutility
+  Note: including file:      C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\__msvc_iter_core.hpp
+  Note: including file:       C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\utility
+  Note: including file:     C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\tuple
+  Note: including file:    C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xpolymorphic_allocator.h
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\cctype
+  Note: including file: E:\code\txiki.js\src\private.h
+  Note: including file:  E:\code\txiki.js\src/../deps/quickjs/cutils.h
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\Llvm\lib\clang\15.0.1\include\inttypes.h
+  Note: including file:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\inttypes.h
+  Note: including file:  E:\code\txiki.js\src/tjs.h
+  Note: including file:   E:\code\txiki.js\src/utils.h
+  Note: including file:    E:\code\txiki.js\deps\quickjs\quickjs.h
+  Note: including file:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\math.h
+  Note: including file:    C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\Llvm\lib\clang\15.0.1\include\stdbool.h
+  Note: including file:    E:\code\txiki.js\deps\libuv\include\uv.h
+  Note: including file:     E:\code\txiki.js\deps\libuv\include/uv/errno.h
+  Note: including file:     E:\code\txiki.js\deps\libuv\include/uv/version.h
+  Note: including file:     C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\Llvm\lib\clang\15.0.1\include\stddef.h
+  Note: including file:     E:\code\txiki.js\deps\libuv\include/uv/win.h
+  Note: including file:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\mswsock.h
+  Note: including file:       C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\mswsockdef.h
+  Note: including file:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\um\ws2tcpip.h
+  Note: including file:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\signal.h
+  Note: including file:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\fcntl.h
+  Note: including file:      E:\code\txiki.js\deps\libuv\include\uv/tree.h
+  Note: including file:      E:\code\txiki.js\deps\libuv\include\uv/threadpool.h
+  Note: including file:  E:\code\txiki.js\src/wasm.h
+  Note: including file:   E:\code\txiki.js\deps\wasm3\source\.\m3_api_wasi.h
+  Note: including file:    E:\code\txiki.js\deps\wasm3\source\./m3_core.h
+  Note: including file:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\assert.h
+  Note: including file:     E:\code\txiki.js\deps\wasm3\source\./wasm3.h
+  Note: including file:      E:\code\txiki.js\deps\wasm3\source\./wasm3_defs.h
+  Note: including file:     E:\code\txiki.js\deps\wasm3\source\./m3_config.h
+  Note: including file:      E:\code\txiki.js\deps\wasm3\source\./m3_config_platforms.h
+  Note: including file:   E:\code\txiki.js\deps\wasm3\source\.\m3_env.h
+  Note: including file:    E:\code\txiki.js\deps\wasm3\source\./m3_code.h
+  Note: including file:    E:\code\txiki.js\deps\wasm3\source\./m3_compile.h
+  Note: including file:     E:\code\txiki.js\deps\wasm3\source\./m3_exec_defs.h
+  Note: including file:     E:\code\txiki.js\deps\wasm3\source\./m3_function.h
+  Note: including file:  E:\code\txiki.js\deps\sqlite3\.\sqlite3.h
+  Note: including file: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\map
+  Note: including file:  C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xtree
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xnode_handle.h
+  Note: including file: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\thread
+  Note: including file:  C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\__msvc_chrono.hpp
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\ctime
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\ratio
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xtimec.h
+  Note: including file:  C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\memory
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\typeinfo
+  Note: including file:    C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\vcruntime_typeinfo.h
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\atomic
+  Note: including file:    C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xatomic_wait.h
+  Note: including file:    C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xthreads.h
+  Note: including file:  C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\stop_token
+  Note: including file: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\iostream
+  Note: including file:  C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\istream
+  Note: including file:   C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\ostream
+  Note: including file:    C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\ios
+  Note: including file:     C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xlocnum
+  Note: including file:      C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\cmath
+  Note: including file:      C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\iterator
+  Note: including file:      C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\streambuf
+  Note: including file:       C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xiosbase
+  Note: including file:        C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\share.h
+  Note: including file:        C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\system_error
+  Note: including file:         C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\__msvc_system_error_abi.hpp
+  Note: including file:         C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\cerrno
+  Note: including file:         C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\stdexcept
+  Note: including file:         C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xcall_once.h
+  Note: including file:         C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xerrc.h
+  Note: including file:        C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xlocale
+  Note: including file:         C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xfacet
+  Note: including file:         C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\xlocinfo
+  Note: including file:          C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\__msvc_xlocinfo_types.hpp
+  Note: including file:          C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.34.31933\include\clocale
+  Note: including file:           C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\locale.h
+lld-link : warning : duplicate symbol: void * __cdecl operator new[](unsigned int, int, char const *, int)
+  >>> defined at D:\a\_work\1\s\src\vctools\VC7Libs\Ship\ATLMFC\Src\MFC\afxmem.cpp:302
+  >>>            nafxcwd.lib(afxmem.obj)
+  >>> defined at libcmtd.lib(new_debug.obj)
+  MFCTest.vcxproj -> E:\code\txiki.js\build\Debug\MFCTest.exe
+  Microsoft (R) COFF/PE Editor Version 14.34.31944.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  

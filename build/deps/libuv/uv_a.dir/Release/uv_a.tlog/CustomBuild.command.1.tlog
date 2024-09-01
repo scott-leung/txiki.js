@@ -1,0 +1,10 @@
+^E:\CODE\TXIKI.JS\DEPS\LIBUV\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/code/txiki.js -BE:/code/txiki.js/build --check-stamp-file E:/code/txiki.js/build/deps/libuv/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

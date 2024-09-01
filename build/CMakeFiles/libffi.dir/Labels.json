@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/libffi"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/b6c2fc2aca9beb5596732d04e56b187d/libffi.rule"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/eded3801ca2e47500e87bc0d7a9e053c/libffi-complete.rule"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-build.rule"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-configure.rule"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-download.rule"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-install.rule"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-mkdir.rule"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-patch.rule"
+		},
+		{
+			"file" : "E:/code/txiki.js/build/CMakeFiles/d524378bb38b8976d376a82a6dd54329/libffi-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libffi"
+		],
+		"name" : "libffi"
+	}
+}

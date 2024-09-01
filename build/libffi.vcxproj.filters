@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\d524378bb38b8976d376a82a6dd54329\libffi-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\d524378bb38b8976d376a82a6dd54329\libffi-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\d524378bb38b8976d376a82a6dd54329\libffi-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\d524378bb38b8976d376a82a6dd54329\libffi-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\d524378bb38b8976d376a82a6dd54329\libffi-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\d524378bb38b8976d376a82a6dd54329\libffi-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\d524378bb38b8976d376a82a6dd54329\libffi-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\eded3801ca2e47500e87bc0d7a9e053c\libffi-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\build\CMakeFiles\b6c2fc2aca9beb5596732d04e56b187d\libffi.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="E:\code\txiki.js\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\code\txiki.js\build\CMakeFiles\libffi" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C71A9533-5004-3221-8285-30452AFB6597}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

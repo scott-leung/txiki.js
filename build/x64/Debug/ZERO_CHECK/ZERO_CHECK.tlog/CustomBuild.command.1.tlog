@@ -1,0 +1,10 @@
+^E:\CODE\TXIKI.JS\BUILD\CMAKEFILES\B6C2FC2ACA9BEB5596732D04E56B187D\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/code/txiki.js -BE:/code/txiki.js/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file E:/code/txiki.js/build/tjs.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

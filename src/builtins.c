@@ -23,7 +23,9 @@
  */
 
 #include "bundles/c/stdlib/assert.c"
+#if !defined(NO_FFI)
 #include "bundles/c/stdlib/ffi.c"
+#endif  // !defined(NO_FFI)
 #include "bundles/c/stdlib/getopts.c"
 #include "bundles/c/stdlib/hashing.c"
 #include "bundles/c/stdlib/ipaddr.c"
@@ -42,7 +44,9 @@ typedef struct {
 
 static tjs_builtin_t builtins[] = {
     { "tjs:assert", tjs__assert, sizeof(tjs__assert) },
+#if !defined(NO_FFI)
     { "tjs:ffi", tjs__ffi, sizeof(tjs__ffi) },
+#endif  // !defined(NO_FFI)
     { "tjs:getopts", tjs__getopts, sizeof(tjs__getopts) },
     { "tjs:hashing", tjs__hashing, sizeof(tjs__hashing) },
     { "tjs:ipaddr", tjs__ipaddr, sizeof(tjs__ipaddr) },

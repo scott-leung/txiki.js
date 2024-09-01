@@ -1,0 +1,18 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIPOSupported.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIPOSupported/CMakeLists-C.txt.in
+C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIPOSupported/CMakeLists-CXX.txt.in
+C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIPOSupported/foo.c
+C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIPOSupported/foo.cpp
+C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIPOSupported/main.c
+C:/Program Files/CMake/share/cmake-3.27/Modules/CheckIPOSupported/main.cpp
+C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-MSVC.cmake
+E:/code/txiki.js/build/CMakeFiles/3.27.7/CMakeCXXCompiler.cmake
+E:/code/txiki.js/deps/wasm3/CMakeLists.txt

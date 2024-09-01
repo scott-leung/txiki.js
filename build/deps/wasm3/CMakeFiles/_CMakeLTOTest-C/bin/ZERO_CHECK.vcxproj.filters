@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="E:\code\txiki.js\build\deps\wasm3\CMakeFiles\_CMakeLTOTest-C\bin\CMakeFiles\ca0e839d348109a92779974e27d577de\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C11D3BD0-E089-3866-B4DA-85F53A4B6435}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
