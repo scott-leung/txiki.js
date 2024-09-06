@@ -36,6 +36,9 @@
     <ClInclude Include="js_env.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="RedirectIOToConsole.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCTest.cpp">
@@ -48,6 +51,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="js_env.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="RedirectIOToConsole.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

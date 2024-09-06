@@ -11,19 +11,12 @@
 #include <thread>
 #include <iostream>
 
-//bool Initialize();
-//void RunJSContent(std::string, std::string content);
-//void StopContent(std::string name);
-//void StopAll();
-//void ReleaseAll();
-
 namespace js {
 
 namespace {
 
-static TJSRuntime* qrt = nullptr;
-static std::map<std::string, JSContext*> tjs_name_ctx_map;
-static std::thread* js_thread = nullptr;
+static std::map<std::string, TJSRuntime*> tjs_name_runtime_map;
+static std::map<std::string, std::thread*> tjs_name_thread_map;
 
 void LogInfo(std::string log_str) {
   std::cout << "Print Log:" << log_str << std::endl;
@@ -33,17 +26,26 @@ static void TjsPrintStrHandlerCallback(const char* str) {
   LogInfo(str);
 }
 
-bool InitializeJSThread() {
+bool NewJSThread(std::string name, std::string script_content) {
   TJS_Initialize(0, NULL);
-  qrt = TJS_NewRuntime();
+
+
+  LogInfo("script_content:" + script_content);
+
+  TJSRuntime* qrt = TJS_NewRuntime();
   if (!qrt) {
     LogInfo("TJS_NewRuntime Error");
+    tjs_name_thread_map.erase(name);
+    tjs_name_runtime_map.erase(name);
     return false;
   }
 
-  tjs_set_print_str_handler(TjsPrintStrHandlerCallback);
+  tjs_name_runtime_map[name] = qrt;
 
-  int exit_code = TJS_Run(qrt);
+  TJS_SetCustomLoggerInfoCallback(qrt, [](const char *log_str) { std::cout << "Print Log2:" << log_str << std::endl; });
+
+  int exit_code = TJS_RunWithEntryScriptContent(qrt, script_content.c_str(), script_content.size(), name.c_str());
+
   char tmp[64];
   sprintf(tmp, "TJS_Runtime exit, exit code: %d", exit_code);
 
@@ -51,75 +53,39 @@ bool InitializeJSThread() {
 
   TJS_FreeRuntime(qrt);
 
+  tjs_name_thread_map.erase(name);
+  tjs_name_runtime_map.erase(name);
+
   return true;
 }
 
-void StopJSThread() {
-  TJS_Stop(qrt);
+void StopJSThread(const std::string& name) {
+  auto it = tjs_name_runtime_map.find(name);
+  if (it != tjs_name_runtime_map.end()) {
+    TJSRuntime *qrt = it->second;
+
+    TJS_Stop(qrt);
+  }
 }
 
 }  // namespace
 
-bool Initialize() {
-  if (js_thread) {
-    return false;
+bool RunJSWithNewThread(std::string name, std::string content) {
+  auto it = tjs_name_runtime_map.find(name);
+if (it != tjs_name_runtime_map.end()) {
+	LogInfo("JS Thread already exists");
+	return false;
   }
-  js_thread = new std::thread(InitializeJSThread);
+  std::thread *js_thread = new std::thread(NewJSThread, name, std::move(content));
+  tjs_name_thread_map[name] = js_thread;
+
   return true;
 }
 
-void RunJSContent(std::string name, std::string content) {
-  Initialize();
-  auto ctx = JS_NewContext(qrt->rt);
-  if (!ctx) {
-    LogInfo("JS_NewContext Error");
-    return;
-  }
-
-  tjs_name_ctx_map[name] = ctx;
-
-  JSValue val = JS_Eval(ctx, content.c_str(), content.size(), name.c_str(),
-                        JS_EVAL_TYPE_MODULE);
-  if (JS_IsException(val)) {
-    // 打印错误信息
-    JSValue e = JS_GetException(ctx);
-    JSValue stack = JS_GetPropertyStr(ctx, e, "stack");
-    const char* stack_str = JS_ToCString(ctx, stack);
-    LogInfo(stack_str);
-    JS_FreeCString(ctx, stack_str);
-    JS_FreeValue(ctx, stack);
-    JS_FreeValue(ctx, e);
-    JS_FreeValue(ctx, val);
-    JS_FreeContext(ctx);
-
-    return;
-  }
-}
-
-void StopContent(std::string name) {
-  auto it = tjs_name_ctx_map.find(name);
-  if (it != tjs_name_ctx_map.end()) {
-    JSContext* ctx = it->second;
-    JS_FreeContext(ctx);
-    tjs_name_ctx_map.erase(it);
-  }
-}
-
 void StopAll() {
-  for (auto& it : tjs_name_ctx_map) {
-    JSContext* ctx = it.second;
-    JS_FreeContext(ctx);
-  }
-  tjs_name_ctx_map.clear();
-}
-
-void ReleaseAll() {
-  StopAll();
-  if (js_thread) {
-    StopJSThread();
-    js_thread->join();
-    delete js_thread;
-    js_thread = nullptr;
+  for (auto &it : tjs_name_runtime_map) {
+	TJSRuntime *qrt = it.second;
+	TJS_Stop(qrt);
   }
 }
 

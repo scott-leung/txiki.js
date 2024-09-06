@@ -5,11 +5,9 @@
 
 namespace js {
 
-bool Initialize();
-void RunJSContent(std::string name, std::string content);
-void StopContent(std::string name);
+bool RunJSWithNewThread(std::string name, std::string content);
+void StopJSThread(const std::string & name);
 void StopAll();
-void ReleaseAll();
 
 }  // namespace js
 

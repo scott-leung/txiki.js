@@ -1,1 +1,1 @@
-E:\code\txiki.js\build\Debug\tjs_x86d.lib
+E:\code\txiki.js\build\Debug\tjs.lib

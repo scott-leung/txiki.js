@@ -403,9 +403,6 @@ TSAN:BOOL=OFF
 //Enable UndefinedBehaviorSanitizer (UBSan)
 UBSAN:BOOL=OFF
 
-//Specify to use external ffi dependency
-USE_EXTERNAL_FFI:BOOL=OFF
-
 //Value Computed by CMake
 libmimalloc_BINARY_DIR:STATIC=E:/code/txiki.js/build/deps/mimalloc
 

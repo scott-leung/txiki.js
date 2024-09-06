@@ -13,3 +13,5 @@ test_dir*/
 *.obj
 build/**/*.log
 build/.vs/
+build/Debug/*.tlog/
+build/Release/*.tlog/

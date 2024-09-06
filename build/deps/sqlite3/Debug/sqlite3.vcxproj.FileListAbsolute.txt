@@ -1,1 +1,0 @@
-E:\code\txiki.js\build\deps\sqlite3\Debug\sqlite3.lib

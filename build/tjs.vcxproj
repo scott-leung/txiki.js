@@ -98,13 +98,13 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\code\txiki.js\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tjs.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">tjs</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tjs_x86d</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">tjs</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\code\txiki.js\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tjs.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">tjs</TargetName>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tjs_x86</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">tjs</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\code\txiki.js\build\MinSizeRel\</OutDir>
@@ -188,7 +188,7 @@
     </Midl>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
-      <AdditionalDependencies>Debug\qjs.lib;Debug\libuv.lib;Debug\m3.lib;Debug\sqlite3.lib;Debug\mimalloc-static.lib</AdditionalDependencies>
+      <AdditionalDependencies>Debug\qjs.lib;Debug\libuv.lib;Debug\m3.lib;Debug\sqlite3.lib;Debug\mimalloc-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -259,7 +259,7 @@
     </Midl>
     <Lib>
       <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
-      <AdditionalDependencies>Release\qjs.lib;Release\libuv.lib;Release\m3.lib;Release\sqlite3.lib;Release\mimalloc-static.lib</AdditionalDependencies>
+      <AdditionalDependencies>Release\qjs.lib;Release\libuv.lib;Release\m3.lib;Release\sqlite3.lib;Release\mimalloc-static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
@@ -534,6 +534,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="E:\code\txiki.js\src\mod_streams.c" />
     <ClCompile Include="E:\code\txiki.js\src\mod_sys.c" />
     <ClCompile Include="E:\code\txiki.js\src\mod_udp.c" />
+    <ClCompile Include="E:\code\txiki.js\src\mod_ext.c" />
     <ClCompile Include="E:\code\txiki.js\src\bundles\c\core\core.c" />
     <ClCompile Include="E:\code\txiki.js\src\bundles\c\core\polyfills.c" />
     <ClCompile Include="E:\code\txiki.js\src\bundles\c\core\run-main.c" />

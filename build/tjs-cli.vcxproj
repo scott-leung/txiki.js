@@ -211,12 +211,12 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Debug\tjs_x86d.lib;Debug\qjs.lib;Debug\libuv.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;Debug\m3.lib;Debug\sqlite3.lib;Debug\mimalloc-static.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;gdi32.lib;winspool.lib;oleaut32.lib;uuid.lib;comdlg32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Debug\tjs.lib;Debug\qjs.lib;Debug\libuv.lib;Debug\m3.lib;Debug\sqlite3.lib;Debug\mimalloc-static.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;gdi32.lib;winspool.lib;oleaut32.lib;uuid.lib;comdlg32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/code/txiki.js/build/Debug/tjs_x86d.lib</ImportLibrary>
+      <ImportLibrary>E:/code/txiki.js/build/Debug/tjs.lib</ImportLibrary>
       <ProgramDataBaseFile>E:/code/txiki.js/build/Debug/tjs.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -256,7 +256,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Release\tjs.lib;deps\quickjs\Release\qjs.lib;deps\libuv\Release\libuv.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;deps\wasm3\source\Release\m3.lib;deps\sqlite3\Release\sqlite3.lib;deps\mimalloc\Release\mimalloc-static.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;gdi32.lib;winspool.lib;oleaut32.lib;uuid.lib;comdlg32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Release\tjs.lib;deps\quickjs\Release\qjs.lib;deps\libuv\Release\libuv.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;deps\wasm3\source\Release\m3.lib;deps\sqlite3\Release\sqlite3.lib;m.lib;pthread.lib;deps\mimalloc\Release\mimalloc-static.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -300,12 +300,12 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>Release\tjs_x86.lib;Release\qjs.lib;Release\libuv.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;Release\m3.lib;Release\sqlite3.lib;Release\mimalloc-static.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;gdi32.lib;winspool.lib;oleaut32.lib;uuid.lib;comdlg32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Release\tjs.lib;Release\qjs.lib;Release\libuv.lib;Release\m3.lib;Release\sqlite3.lib;Release\mimalloc-static.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;gdi32.lib;winspool.lib;oleaut32.lib;uuid.lib;comdlg32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x86</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/code/txiki.js/build/Release/tjs_x86.lib</ImportLibrary>
+      <ImportLibrary>E:/code/txiki.js/build/Release/tjs.lib</ImportLibrary>
       <ProgramDataBaseFile>E:/code/txiki.js/build/Release/tjs.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>

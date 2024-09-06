@@ -180,6 +180,7 @@ static void tjs__bootstrap_core(JSContext *ctx, JSValue ns) {
 #ifndef _WIN32
     tjs__mod_posix_socket_init(ctx, ns);
 #endif
+    tjs__mod_ext_init(ctx, ns);
 }
 
 JSValue tjs__get_args(JSContext *ctx) {
@@ -511,6 +512,7 @@ int TJS_Run(TJSRuntime *qrt) {
         uv_unref((uv_handle_t *) &qrt->stop);
 
         /* If we are running the main interpreter, run the entrypoint. */
+        // 这里的入口有问题，run-main js 只做了 exe 和 控制台 的处理，其他的没有，其他的要用别的函数
         ret = tjs__eval_bytecode(qrt->ctx, tjs__run_main, tjs__run_main_size, true);
     }
 
@@ -518,6 +520,44 @@ int TJS_Run(TJSRuntime *qrt) {
         return ret;
 
     int r;
+    do {
+        uv__maybe_idle(qrt);
+        r = uv_run(&qrt->loop, UV_RUN_DEFAULT);
+    } while (r == 0 && JS_IsJobPending(qrt->rt));
+
+    JSValue exc = JS_GetException(qrt->ctx);
+    if (!JS_IsNull(exc)) {
+        tjs_dump_error1(qrt->ctx, exc);
+        ret = 1;
+    }
+
+    JS_FreeValue(qrt->ctx, exc);
+
+    return ret;
+}
+
+int TJS_RunWithEntryScriptContent(TJSRuntime *qrt, const char *script, const size_t script_size, const char* script_name) {
+    int ret = 0;
+
+    CHECK_EQ(uv_prepare_start(&qrt->jobs.prepare, uv__prepare_cb), 0);
+    uv_unref((uv_handle_t *) &qrt->jobs.prepare);
+    CHECK_EQ(uv_check_start(&qrt->jobs.check, uv__check_cb), 0);
+    uv_unref((uv_handle_t *) &qrt->jobs.check);
+
+    /* Use the async handle to keep the worker alive even when there is nothing to do. */
+    if (!qrt->is_worker) {
+        uv_unref((uv_handle_t *) &qrt->stop);
+
+        /* If we are running the main interpreter, run the entrypoint. */
+        // 这里的入口有问题，run-main js 只做了 exe 和 控制台 的处理，其他的没有
+        ret = tjs__eval_script_str(qrt->ctx, script, script_size, script_name, JS_EVAL_TYPE_MODULE, true);
+    }
+
+    if (ret != 0)
+        return ret;
+
+    int r;
+    size_t loop_count = 0;
     do {
         uv__maybe_idle(qrt);
         r = uv_run(&qrt->loop, UV_RUN_DEFAULT);
@@ -623,4 +663,8 @@ JSValue TJS_EvalModule(JSContext *ctx, const char *filename, bool is_main) {
 
     dbuf_free(&dbuf);
     return ret;
+}
+
+void TJS_SetCustomLoggerInfoCallback(TJSRuntime *qrt, custom_logger_info_callback_t callback) {
+    qrt->custom_logger_info_cb = callback;
 }

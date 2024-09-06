@@ -9,6 +9,7 @@
 #include "afxdialogex.h"
 
 #include "js_env.h"
+#include "RedirectIOToConsole.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -49,6 +50,9 @@ BOOL CMFCTestDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+    AllocConsole();
+    freopen("CONOUT$", "w", stdout);
+    std::cout << "This is a test info" << std::endl;
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -89,19 +93,16 @@ HCURSOR CMFCTestDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
-
 void CMFCTestDlg::OnBnClickedBtnTest() {
     // TODO: 在此添加控件通知处理程序代码
-    //AllocConsole();
+    //RedirectIOToConsole();
+    
 
-	js::Initialize();
+	js::RunJSWithNewThread("test_1", "setInterval(() => console.log(123), 500)");
+    js::RunJSWithNewThread("test_2", "setInterval(() => console.log(2334), 300)");
+	//js::RunJSWithNewThread("test_1", ";setInterval(() => console.log(345), 300));");
+    //js::RunJSWithNewThread("test_2", "setInterval(() => console.log('sdfwe'), 500))");
+	Sleep(10000);
 
-    Sleep(1000);
-
-	// js::RunJSContent("tests", "console.log(123)");
-
-	Sleep(5000);
-
-	js::ReleaseAll();
+	js::StopAll();
 }

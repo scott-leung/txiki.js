@@ -84,6 +84,8 @@ static JSValue tjs_guess_handle(JSContext *ctx, JSValue this_val, int argc, JSVa
             return JS_NewString(ctx, "tcp");
         case UV_UDP:
             return JS_NewString(ctx, "udp");
+        case 0:
+            return JS_NewString(ctx, "maybe_custom");
         default:
             return JS_NewString(ctx, "unknown");
     }

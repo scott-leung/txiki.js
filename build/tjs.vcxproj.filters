@@ -70,6 +70,9 @@
     <ClCompile Include="E:\code\txiki.js\src\mod_udp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E:\code\txiki.js\src\mod_ext.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="E:\code\txiki.js\src\bundles\c\core\core.c">
       <Filter>Source Files</Filter>
     </ClCompile>

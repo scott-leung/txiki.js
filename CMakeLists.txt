@@ -73,6 +73,8 @@ endif()
 
 # find_package(CURL REQUIRED)
 
+set(CMAKE_GENERATOR_PLATFORM "Win32")
+
 add_library(tjs STATIC
     src/builtins.c
     #src/curl-utils.c
@@ -86,7 +88,7 @@ add_library(tjs STATIC
     src/timers.c
     src/utils.c
     src/version.c
-    src/vm.c
+    src/tjs.c
     src/wasm.c
     src/worker.c
     #src/ws.c
@@ -102,6 +104,7 @@ add_library(tjs STATIC
     src/mod_streams.c
     src/mod_sys.c
     src/mod_udp.c
+    src/mod_ext.c
     src/bundles/c/core/core.c
     src/bundles/c/core/polyfills.c
     src/bundles/c/core/run-main.c

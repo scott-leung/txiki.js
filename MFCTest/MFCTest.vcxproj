@@ -36,7 +36,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>ClangCL</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
@@ -77,12 +77,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>$(OutDir);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -94,13 +96,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_DEBUG;NO_CURL;NO_FFI;PATH_MAX=260;BUILD_WITH_MIMALLOC;d_m3HasWASI;CMAKE_INTDIR="Debug";_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>E:\code\txiki.js\src;E:\code\txiki.js\deps\quickjs;E:\code\txiki.js\deps\libuv\include;E:\code\txiki.js\deps\wasm3\source\.;E:\code\txiki.js\deps\sqlite3\.;E:\code\txiki.js\deps\mimalloc\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\code\txiki.js\src;E:\code\txiki.js\deps\quickjs;E:\code\txiki.js\deps\libuv\include;E:\code\txiki.js\deps\wasm3\source\.;E:\code\txiki.js\deps\sqlite3\.;E:\code\txiki.js\deps\mimalloc\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>tjs_x86d.lib;qjs.lib;libuv.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;m3.lib;sqlite3.lib;mimalloc-static.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;gdi32.lib;winspool.lib;oleaut32.lib;uuid.lib;comdlg32.lib</AdditionalDependencies>
+      <AdditionalDependencies>tjs.lib;qjs.lib;libuv.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;m3.lib;sqlite3.lib;mimalloc-static.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;gdi32.lib;winspool.lib;oleaut32.lib;uuid.lib;comdlg32.lib</AdditionalDependencies>
       <AdditionalOptions>/FORCE:MULTIPLE %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Midl>
@@ -146,13 +148,16 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;NO_CURL;NO_FFI;PATH_MAX=260;BUILD_WITH_MIMALLOC;d_m3HasWASI;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>E:\code\txiki.js\src;E:\code\txiki.js\deps\quickjs;E:\code\txiki.js\deps\libuv\include;E:\code\txiki.js\deps\wasm3\source\.;E:\code\txiki.js\deps\sqlite3\.;E:\code\txiki.js\deps\mimalloc\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>tjs.lib;iphlpapi.lib;userenv.lib;ws2_32.lib;dbghelp.lib;ole32.lib;psapi.lib;user32.lib;advapi32.lib;shell32.lib;bcrypt.lib;kernel32.lib;gdi32.lib;winspool.lib;oleaut32.lib;uuid.lib;comdlg32.lib</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -197,6 +202,9 @@
     <ClInclude Include="MFCTest.h" />
     <ClInclude Include="MFCTestDlg.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="RedirectIOToConsole.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -209,6 +217,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="RedirectIOToConsole.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

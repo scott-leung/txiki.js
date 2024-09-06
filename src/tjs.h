@@ -36,6 +36,11 @@ extern "C" {
 
 typedef struct TJSRuntime TJSRuntime;
 
+// custom_logger_info_callback_t is a function pointer type that takes a
+// TJSRuntime pointer and a const char pointer as arguments and returns void.
+typedef void (*custom_logger_info_callback_t)(const char *);
+
+// custom_logger_info
 typedef struct TJSRunOptions {
     int mem_limit;
     size_t stack_size;
@@ -49,7 +54,12 @@ void TJS_Initialize(int argc, char **argv);
 JSContext *TJS_GetJSContext(TJSRuntime *qrt);
 TJSRuntime *TJS_GetRuntime(JSContext *ctx);
 int TJS_Run(TJSRuntime *qrt);
+int TJS_RunWithEntryScriptContent(TJSRuntime *qrt,
+                                  const char *script,
+                                  const size_t script_size,
+                                  const char *script_name);
 void TJS_Stop(TJSRuntime *qrt);
+void TJS_SetCustomLoggerInfoCallback(TJSRuntime *qrt, custom_logger_info_callback_t callback);
 
 #ifdef __cplusplus
 }

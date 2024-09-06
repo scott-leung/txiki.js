@@ -1,12 +1,30 @@
 const core = globalThis[Symbol.for('tjs.internal.core')];
-
+const customLogger = core.CustomLogger;
 const kStdioHandle = Symbol('kStdioHandle');
 const kStdioHandleType = Symbol('kStdioHandleType');
 
 
+const FakeIOStream = {
+    read() {
+        return Promise.resolve(null);
+    },
+
+    write() {
+        return Promise.resolve(0);
+    },
+
+    getWinSize() {
+        return { width: -1, height: -1 };
+    },
+
+    setMode() {
+        return;
+    },
+};
+
 class BaseIOStream {
     constructor(handle, type) {
-        this[kStdioHandle] = handle;
+        this[kStdioHandle] = handle || FakeIOStream;
         this[kStdioHandleType] = type;
     }
 
@@ -16,6 +34,32 @@ class BaseIOStream {
 
     get type() {
         return this[kStdioHandleType];
+    }
+}
+
+class EmptyOutputStream extends BaseIOStream {
+    constructor(fd, type) {
+        super(FakeIOStream, type);
+        this.fd = fd;
+    }
+    async write(buf) {
+        return this[kStdioHandle].write(buf);
+    }
+
+    get height() {
+        if (!this.isTerminal) {
+            throw new Error('not a terminal');
+        }
+
+        return this[kStdioHandle].getWinSize().height;
+    }
+
+    get width() {
+        if (!this.isTerminal) {
+            throw new Error('not a terminal');
+        }
+
+        return this[kStdioHandle].getWinSize().width;
     }
 }
 
@@ -57,6 +101,20 @@ class OutputStream extends BaseIOStream {
     }
 }
 
+class CustomLoggerOutputStream {
+    async write(buf) {
+        return customLogger.info(buf);
+    }
+
+    get height() {
+        throw new Error('not a terminal');
+    }
+
+    get width() {
+        throw new Error('not a terminal');
+    }
+}
+
 function createStdioStream(fd) {
     const isStdin = fd === core.STDIN_FILENO;
     const StreamType = isStdin ? InputStream : OutputStream;
@@ -92,6 +150,14 @@ function createStdioStream(fd) {
             const handle = core.newStdioFile(pathByFd(fd), fd);
 
             return new StreamType(handle, type);
+        }
+
+        case 'maybe_custom': {
+            // if (customLogger) {
+            return new CustomLoggerOutputStream();
+            // }
+
+            // return new EmptyOutputStream(fd, type);
         }
 
         default:

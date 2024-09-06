@@ -67,3 +67,37 @@ error:
     tjs_dump_error(ctx);
     return -1;
 }
+
+int tjs__eval_script_str(JSContext *ctx,
+                         const char *script,
+                         const size_t script_size,
+                         const char *filename,
+                         int eval_flags,
+                         bool check_promise) {
+    JSValue val = JS_Eval(ctx, script, script_size, filename, eval_flags);
+    if (JS_IsException(val))
+        goto error;
+
+    if (check_promise) {
+        JSPromiseStateEnum promise_state = JS_PromiseState(ctx, val);
+        if (promise_state != -1) {
+            // It's a promise!
+            if (promise_state == JS_PROMISE_REJECTED) {
+                JSValue res = JS_PromiseResult(ctx, val);
+                tjs_dump_error1(ctx, res);
+                JS_FreeValue(ctx, res);
+                JS_FreeValue(ctx, val);
+
+                return -1;
+            }
+        }
+    }
+
+    JS_FreeValue(ctx, val);
+
+    return 0;
+
+error:
+    tjs_dump_error(ctx);
+    return -1;
+}
