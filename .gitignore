@@ -15,3 +15,7 @@ build/**/*.log
 build/.vs/
 build/Debug/*.tlog/
 build/Release/*.tlog/
+build/**/Debug/*.tlog/
+build/**/Release/*.tlog/
+MFCTest/**/*.tlog
+MFCTest/**/*.log

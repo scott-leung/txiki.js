@@ -24,7 +24,7 @@ static JSValue tjs_custom_logger_info_func(JSContext *ctx, JSValue new_target, i
         }
         log_str[size] = '\0';
 
-        qrt->custom_logger_info_cb(log_str);
+        qrt->custom_logger_info_cb(qrt, log_str);
         free(log_str);
     }
     JSValue ret = JS_UNDEFINED;

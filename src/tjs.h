@@ -38,7 +38,7 @@ typedef struct TJSRuntime TJSRuntime;
 
 // custom_logger_info_callback_t is a function pointer type that takes a
 // TJSRuntime pointer and a const char pointer as arguments and returns void.
-typedef void (*custom_logger_info_callback_t)(const char *);
+typedef void (*custom_logger_info_callback_t)(TJSRuntime *qrt, const char * log_str);
 
 // custom_logger_info
 typedef struct TJSRunOptions {

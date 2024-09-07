@@ -42,7 +42,9 @@ bool NewJSThread(std::string name, std::string script_content) {
 
   tjs_name_runtime_map[name] = qrt;
 
-  TJS_SetCustomLoggerInfoCallback(qrt, [](const char *log_str) { std::cout << "Print Log2:" << log_str << std::endl; });
+  TJS_SetCustomLoggerInfoCallback(qrt, [](TJSRuntime *tjs_rt, const char *log_str) {
+      std::cout << "Print Log2:" << log_str << std::endl;
+  });
 
   int exit_code = TJS_RunWithEntryScriptContent(qrt, script_content.c_str(), script_content.size(), name.c_str());
 
