@@ -136,11 +136,18 @@ void tjs_addr2obj(JSContext *ctx, JSValue obj, const struct sockaddr *sa, bool s
 
 static void tjs_dump_obj(JSContext *ctx, FILE *f, JSValue val) {
     const char *str = JS_ToCString(ctx, val);
+    const TJSRuntime *qrt = TJS_GetRuntime(ctx);
     if (str) {
         fprintf(f, "%s\n", str);
+        if (qrt->custom_logger_info_cb) {
+            qrt->custom_logger_info_cb(qrt, str);
+        }
         JS_FreeCString(ctx, str);
     } else {
         fprintf(f, "[exception]\n");
+        if (qrt->custom_logger_info_cb) {
+            qrt->custom_logger_info_cb(qrt, "[exception]\n");
+        }
     }
 }
 
